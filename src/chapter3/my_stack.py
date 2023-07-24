@@ -14,7 +14,7 @@ class StackNode:
 
 
 class MyStack:
-    def __init__(self, top: Optional[StackNode]) -> None:
+    def __init__(self, top: Optional[StackNode] = None) -> None:
         self.top = top
 
     def pop(self) -> Type[Any]:
