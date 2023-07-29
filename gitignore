@@ -1,5 +1,5 @@
 .vscode/
-cov.xml
+**/cov.xml
 .coverage
 __pycache__/
 covcommand.txt
