@@ -3,6 +3,12 @@ class FullStackException(Exception):
         super().__init__()
 
 
+class EmptyStackException(Exception):
+    def __init__(self):
+        super().__init__()
+        self.message = "Empty Stack Exception"
+
+
 class MultiStack:
     class StackInfo:
         """
@@ -22,7 +28,7 @@ class MultiStack:
             stack can wrap around to the start of the array.
             """
             # if outside of bounds of array, return false
-            if index < 0 or index > len(self.values):
+            if index < 0 or index >= len(self.values):
                 return False
             # if index wraps around, adjust it
             if index < self_info.start:
@@ -30,7 +36,7 @@ class MultiStack:
             else:
                 contiguous_index = index
             end = self_info.start + self_info.capacity
-            return self_info.start < contiguous_index and contiguous_index < end
+            return self_info.start <= contiguous_index and contiguous_index < end
 
         def last_capacity_index(self_info, self) -> int:
             return self.adjust_index(self_info.start + self_info.capacity - 1)
@@ -64,6 +70,19 @@ class MultiStack:
         stack.size += 1
         self.values[stack.last_element_index(self)] = value
 
+    def pop(self, stack_num: int) -> int:
+        """
+        Remove value from stack
+        """
+        stack: MultiStack.StackInfo = self.info[stack_num]
+        if stack.is_empty():
+            raise EmptyStackException
+        # remove last element
+        value = self.values[stack.last_element_index(self)]
+        self.values[stack.last_element_index(self)] = 0  # clear item
+        stack.size -= 1
+        return value
+
     def shift(self, stack_num: int) -> None:
         """
         Shift items in stack over by one element. If we have available capacity, then
@@ -77,6 +96,7 @@ class MultiStack:
         if stack.size >= stack.capacity:
             next_stack = (stack_num + 1) % len(self.info)
             self.shift(next_stack)
+            stack.capacity += 1
         # Shift all elements in stack over by one
         index = stack.last_capacity_index(self)
         while stack.is_within_stack_capacity(self, index):
