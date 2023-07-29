@@ -1,4 +1,5 @@
 .vscode
 cov.xml
 .coverage
-src\chapter3\problems\problem_1\__pycache__
+__pycache__/
+covcommand.txt
