@@ -1,4 +1,4 @@
-.vscode
+.vscode/
 cov.xml
 .coverage
 __pycache__/
