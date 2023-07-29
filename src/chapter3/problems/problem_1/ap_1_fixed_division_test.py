@@ -2,7 +2,7 @@ import unittest
 from ap_1_fixed_division import FixedMultiStack, FullStackException, EmptyStackException
 
 
-class MyQueueTests(unittest.TestCase):
+class FixedMultiStackTests(unittest.TestCase):
     def setUp(self) -> None:
         self.fixed_multi_stack = FixedMultiStack(4)
 
