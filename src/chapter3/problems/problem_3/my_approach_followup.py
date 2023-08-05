@@ -8,6 +8,9 @@ class EmptyStackException(Exception):
 
 
 class SetOfStacksFollowUp:
+    """
+    TODO: should remove empty stacks
+    """
     def __init__(self, threshold: int) -> None:
         self.threshold = threshold
         self.current_stack: List[int] = []
