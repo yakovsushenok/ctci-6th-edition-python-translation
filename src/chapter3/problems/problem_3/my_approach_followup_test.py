@@ -1,5 +1,5 @@
 import unittest
-from my_approach_followup import SetOfStacksFollowUp, EmptyStackException
+from my_approach_followup import SetOfStacksFollowUp
 
 
 class SetOfStacksFollowUpTests(unittest.TestCase):
@@ -16,13 +16,17 @@ class SetOfStacksFollowUpTests(unittest.TestCase):
         # and it is not empty, then it should return the item being popped
         item_popped = self.set_of_stacks.pop_at(1)
         self.assertEqual(item_popped, 3)
-        # and the the stack is empty, then it should raise an exception
+        # and the stack has 1 remaining element, then after popping, that stack should be removed and the
+        # last stack index should decrease by 1
+        current_last_stack_num_before_popping = (
+            self.set_of_stacks.current_last_stack_num
+        )
         self.set_of_stacks.pop_at(1)
-        self.assertRaises(EmptyStackException, lambda: self.set_of_stacks.pop_at(1))
-
-        # and the stack that is being popped does not exist
-        # it should raise an exception
-        self.assertRaises(EmptyStackException, lambda: self.set_of_stacks.pop_at(3))
+        self.assertEqual(
+            self.set_of_stacks.current_last_stack_num,
+            current_last_stack_num_before_popping - 1,
+        )
+        self.assertEqual(self.set_of_stacks.stacks[1], [4])
 
 
 if __name__ == "__main__":
