@@ -1,5 +1,5 @@
 import unittest
-from my_stack import MyStack, StackNode, EmptyStackException
+from src.chapter3.my_stack import MyStack, StackNode, EmptyStackException
 
 
 class MyStackTests(unittest.TestCase):
