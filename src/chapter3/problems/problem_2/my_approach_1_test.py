@@ -1,5 +1,5 @@
 import unittest
-from my_approach_1 import StackMin, EmptyStackException
+from src.chapter3.problems.problem_2.my_approach_1 import StackMin, EmptyStackException
 
 
 class StackMinTests(unittest.TestCase):

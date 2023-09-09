@@ -1,5 +1,5 @@
 import unittest
-from my_queue_my_approach import MyQueueViaStacks
+from src.chapter3.problems.problem_4.my_queue_my_approach import MyQueueViaStacks
 from src.chapter3.my_stack import EmptyStackException
 
 

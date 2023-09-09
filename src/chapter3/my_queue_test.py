@@ -1,5 +1,5 @@
 import unittest
-from my_queue import MyQueue, QueueNode, NoSuchElementException
+from src.chapter3.my_queue import MyQueue, QueueNode, NoSuchElementException
 
 
 class MyQueueTests(unittest.TestCase):

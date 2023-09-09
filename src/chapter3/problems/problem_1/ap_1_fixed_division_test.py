@@ -1,5 +1,9 @@
 import unittest
-from ap_1_fixed_division import FixedMultiStack, FullStackException, EmptyStackException
+from src.chapter3.problems.problem_1.ap_1_fixed_division import (
+    FixedMultiStack,
+    FullStackException,
+    EmptyStackException,
+)
 
 
 class FixedMultiStackTests(unittest.TestCase):

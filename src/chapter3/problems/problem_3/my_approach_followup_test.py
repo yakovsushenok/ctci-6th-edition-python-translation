@@ -1,5 +1,5 @@
 import unittest
-from my_approach_followup import SetOfStacksFollowUp
+from src.chapter3.problems.problem_3.my_approach_followup import SetOfStacksFollowUp
 
 
 class SetOfStacksFollowUpTests(unittest.TestCase):
