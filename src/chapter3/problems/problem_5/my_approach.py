@@ -14,6 +14,7 @@ class SortStack:
             while not self.main_stack.is_empty() and item > self.main_stack.peek():
                 popped_from_main_stack = self.main_stack.pop()
                 self.temp_stack.push(popped_from_main_stack)
+            self.main_stack.push(item)
             while not self.temp_stack.is_empty():
                 popped_from_temp_stack = self.temp_stack.pop()
                 self.main_stack.push(popped_from_temp_stack)
