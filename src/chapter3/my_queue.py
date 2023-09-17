@@ -1,4 +1,4 @@
-from typing import Type, Any, Optional
+from typing import Any, Optional
 
 
 class NoSuchElementException(Exception):
@@ -8,7 +8,7 @@ class NoSuchElementException(Exception):
 
 
 class QueueNode:
-    def __init__(self, data: Type[Any]) -> None:
+    def __init__(self, data: Any) -> None:
         self.data = data
         self.next: Optional[QueueNode] = None
 
@@ -22,7 +22,7 @@ class MyQueue:
         self.first_node = first_node
         self.last_node = last_node
 
-    def add(self, item: Type[Any]) -> None:
+    def add(self, item: Any) -> None:
         t = QueueNode(item)
         if self.last_node is not None:
             self.last_node.next = t
@@ -31,7 +31,7 @@ class MyQueue:
         if self.first_node is None:
             self.first_node = self.last_node
 
-    def remove(self) -> Type[Any]:
+    def remove(self) -> Any:
         if self.first_node is None:
             raise NoSuchElementException
         data = self.first_node.data
@@ -40,7 +40,7 @@ class MyQueue:
             self.last_node = None
         return data
 
-    def peek(self) -> Type[Any]:
+    def peek(self) -> Any:
         if self.first_node is None:
             raise NoSuchElementException
         return self.first_node.data
