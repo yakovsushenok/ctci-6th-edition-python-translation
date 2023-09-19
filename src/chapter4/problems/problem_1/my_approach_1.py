@@ -21,17 +21,3 @@ def path_exists_bfs(node_1: Node, node_2: Node) -> bool:
                 marked_nodes[node] = True
                 queue.add(node)
     return False
-
-
-node_0 = Node(0)
-node_1 = Node(1)
-node_2 = Node(2)
-node_3 = Node(3)
-node_0.children = [node_1]
-
-node_2.children = [node_1]
-node_3.children = [node_1]
-
-
-ret = path_exists_bfs(node_0, node_2)
-print(f"ret: {ret}")
